@@ -1,6 +1,10 @@
 ---
 marp: true
+paginate: true
+footer: Adrien Bouyssou (macdrien.github.io)
+transition: push
 ---
+
 
 # Programmation frontend avec VueJS
 
@@ -8,9 +12,9 @@ marp: true
 
 ## Enseignant
 
-- Adrien BOUYSSOU
+- **Adrien BOUYSSOU**
 - Ingénieur logiciel depuis 2021
-- Chez Viveris Technologies à Toulouse
+- Chez **Viveris Technologies** à Toulouse
 - Full-stack
   - Java
   - VueJS
@@ -31,3 +35,5 @@ marp: true
 2. Introduction à VueJS
 3. Initiation à un projet VueJS et son environnement
 4. Programmation dans un cas réel simplifié
+
+**On ne verra pas Typescript**
