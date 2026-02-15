@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Composants - Props et Events</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <h1>Composants - Props et Events</h1>
+
+    <div id="app">
+      <counter />
+    </div>
+
+    <script type="module">
+      const { createApp } = Vue;
+      import Counter from "./Counter.js";
+
+      createApp({
+        components: { Counter },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

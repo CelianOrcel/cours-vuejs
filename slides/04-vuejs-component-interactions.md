@@ -30,8 +30,8 @@ On a besoin d'un mécanisme qui nous permette de faire passer des informations d
 
 ## Flux de données - règle
 
-1. Les données vont toujours des parents vers les enfants, jamais dans le sens inverse. Cela se fait avec des propriétés (props).  
-2. L'enfant peut émettre un évènement (event) pour faire remonter une action ou ... un évènement vers un composant parent.
+1. Les données vont toujours des parents vers les enfants, jamais dans le sens inverse. Cela se fait avec des propriétés (props).
+2. L'enfant peut émettre un évènement (event) pour faire remonter une action ou un évènement vers un composant parent.
 
 ---
 
@@ -41,18 +41,18 @@ Liste les props utilisée
 
 ```javascript
 // Person.js
-<script setup>
-import { compute } from 'vue';
-
-const props = defineProps(['firstName', 'birthDate', 'lastName'])
-
-const fullname = compute(() => `${props.firstname} ${props.lastname}`)
-</script>
-
-<template>
-    <h2>{{ fullname }}</h2>
-    <p>{{ birthDate }}</p>
-</template>
+export default {
+  props: ["firstName", "birthDate", "lastName"],
+  computed: {
+    fullname() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  },
+  template: `<div>
+        <h2>{{ fullname }}</h2>
+        <p>{{ birthDate }}</p>
+    </div>`,
+};
 ```
 
 ---
@@ -61,20 +61,20 @@ const fullname = compute(() => `${props.firstname} ${props.lastname}`)
 
 ```javascript
 // List.js
-<script setup>
-import { ref } from 'vue';
-import Person from './Person';
+import Person from './Person.js';
 
-const list = ref([{ firstName: "John", birthDate: "10/05/2000", lastName: "Doe" }])
-</script>
-
-<template>
-    <Person v-for="person in list"
-        :firstName="person.firstName"
-        :lastName="person.lastName"
-        :birthDate="person.birthDate"
-    />
-</template>
+export default {
+  components: { Person }
+  data() { return {
+    list: [{ firstName: "John", birthDate: "10/05/2000", lastName: "Doe" }],
+  }},
+  template: `
+  <Person v-for="person in list"
+    :firstName="person.firstName"
+    :lastName="person.lastName"
+    :birthDate="person.birthDate"
+  />`
+}
 ```
 
 ---
@@ -83,14 +83,11 @@ const list = ref([{ firstName: "John", birthDate: "10/05/2000", lastName: "Doe" 
 
 ```javascript
 // Counter
-<script setup>
-defineProps(['text'])
-defineEmits(['onClick'])
-</script>
-
-<template>
-    <button @click='$emit('onClick')'>{{ text }}</button>
-</template>
+export default {
+  props: ["text"],
+  emits: ["onClick"],
+  template: `<button @click="$emit('onClick')">{{ text }}</button>`,
+};
 ```
 
 ---
@@ -99,18 +96,16 @@ defineEmits(['onClick'])
 
 ```javascript
 // ButtonAction
-<script setup>
-defineProps(['text'])
-const emits = defineEmits(['onClick'])
-
-function click(_event) {
-    emit('onClick');
-}
-</script>
-
-<template>
-    <button @click='click'>{{ text }}</button>
-</template>
+export default {
+  props: ["text"],
+  emits: ["onClick"],
+  methods: {
+    click(_event) {
+      this.emit("onClick");
+    },
+  },
+  template: `<button @click='click'>{{ text }}</button>`,
+};
 ```
 
 ---
@@ -119,15 +114,19 @@ function click(_event) {
 
 ```javascript
 // Counter
-<script setup>
-import { ref } from 'vue';
-import ButtonAction from 'ButtonAction';
-
-const counter = ref(0);
-</script>
-
-<template>
-    <p>{{ counter }}</p>
-    <ButtonAction title="Click" @onClick="increment"/>
-</template>
+export default {
+  components: { ButtonAction },
+  data() {
+    return { counter: 0 };
+  },
+  methods: {
+    increment() {
+      this.counter++;
+    },
+  },
+  template: `<div>
+        <p>{{ counter }}</p>
+        <ButtonAction text="Click" @onClick="increment"/>
+    </div>`,
+};
 ```
