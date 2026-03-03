@@ -4,8 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-
-# Programmation frontend avec VueJS
+# 00 - Programmation frontend avec VueJS
 
 ---
 
@@ -28,13 +27,20 @@ footer: Adrien Bouyssou (macdrien.github.io)
 2. Découverte du développement frontend moderne avec VueJS
 3. Appréhender un projet frontend complet
 
+## Typescript
+
+On ne l'abordera pas pour rester "simple" et s'économiser du temps.
+
+---
+
 ## Organisation
 
 1. Révision des bases de JS
 2. Introduction à VueJS
-3. Initiation à un projet VueJS et son environnement
-4. Programmation dans un cas réel simplifié
 
-## Typescript
+- Première évaluation
 
-On ne l'abordera pas pour rester "simple" et s'économiser du temps.
+4. Initiation à un projet VueJS et son environnement
+5. Programmation dans un cas réel simplifié
+
+- Seconde évaluation

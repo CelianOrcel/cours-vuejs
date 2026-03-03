@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# Pinia
+# 08 - Les stores avec Pinia
 
 ---
 

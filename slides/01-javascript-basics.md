@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# Rappel JavaScript
+# 01 - Rappel JavaScript
 
 ---
 
@@ -26,15 +26,15 @@ footer: Adrien Bouyssou (macdrien.github.io)
 ## Document managing
 
 ```javascript
-const switcher = document.getElementById('switcher')
-switcher.setAttribute('disabled', tue)
+const switcher = document.getElementById("switcher");
+switcher.setAttribute("disabled", tue);
 ```
 
 ```javascript
-const elements = document.getElementsByTagName("p")
+const elements = document.getElementsByTagName("p");
 for (let element of elements) {
-    const currentColor = element.style.color
-    element.style.color = currentColor === "red" ? "black" : "red"
+  const currentColor = element.style.color;
+  element.style.color = currentColor === "red" ? "black" : "red";
 }
 ```
 
@@ -49,13 +49,13 @@ for (let element of elements) {
 ```javascript
 // utils.js
 export default function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
+  return Math.floor(Math.random() * max);
 }
 ```
 
 ```javascript
 // script.js
-import getRandomInt from "../utils.js"
+import getRandomInt from "../utils.js";
 ```
 
 ---
@@ -67,13 +67,13 @@ Export classique :
 ```javascript
 // utils.js
 export function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
+  return Math.floor(Math.random() * max);
 }
 ```
 
 ```javascript
 // script.js
-import { getRandomInt } from "../utils.js"
+import { getRandomInt } from "../utils.js";
 ```
 
 ---
@@ -83,12 +83,10 @@ import { getRandomInt } from "../utils.js"
 ```javascript
 // utils.js
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
+  return Math.floor(Math.random() * max);
 }
 
-export {
-    getRandomInt
-}
+export { getRandomInt };
 ```
 
 ---
@@ -104,14 +102,14 @@ export {
 ## Exemple
 
 ```javascript
-const id = getRandomInt(151) + 1 // 4
+const id = getRandomInt(151) + 1; // 4
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}`) // GET request
-    .then((response) => response.json())
-    .then((data) => {
-        const spriteUrl = data.sprites.other["official-artwork"].front_default;
-        console.log(spriteUrl);
-    })
-console.log("Hello from the text world") // Print
+  .then((response) => response.json())
+  .then((data) => {
+    const spriteUrl = data.sprites.other["official-artwork"].front_default;
+    console.log(spriteUrl);
+  });
+console.log("Hello from the text world"); // Print
 
 // Result :
 // Hello from the text world
@@ -133,12 +131,14 @@ console.log("Hello from the text world") // Print
 
 ```javascript
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}`) // Async
-    .then((response) => response.json(), // Parsing async too
-            (error) => console.log(error))
-    .then((data) => {
-        const spriteUrl = data.sprites.other["official-artwork"].front_default
-        pokemon.setAttribute("src", spriteUrl)
-    })
+  .then(
+    (response) => response.json(), // Parsing async too
+    (error) => console.log(error),
+  )
+  .then((data) => {
+    const spriteUrl = data.sprites.other["official-artwork"].front_default;
+    pokemon.setAttribute("src", spriteUrl);
+  });
 ```
 
 ---
@@ -146,10 +146,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}`) // Async
 ## Async / Await
 
 ```javascript
-const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-const data = await response.json()
-const spriteUrl = data.sprites.other["official-artwork"].front_default
-pokemon.setAttribute("src", spriteUrl)
+const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+const data = await response.json();
+const spriteUrl = data.sprites.other["official-artwork"].front_default;
+pokemon.setAttribute("src", spriteUrl);
 ```
 
 ---
@@ -158,11 +158,11 @@ pokemon.setAttribute("src", spriteUrl)
 
 ```javascript
 try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    const data = await response.json()
-    const spriteUrl = data.sprites.other["official-artwork"].front_default
-    pokemon.setAttribute("src", spriteUrl)
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const data = await response.json();
+  const spriteUrl = data.sprites.other["official-artwork"].front_default;
+  pokemon.setAttribute("src", spriteUrl);
 } catch (error) {
-    console.log(error)
+  console.log(error);
 }
 ```

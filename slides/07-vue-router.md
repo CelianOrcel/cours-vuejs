@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# Vue-Router
+# 07 - Vue-Router
 
 ---
 

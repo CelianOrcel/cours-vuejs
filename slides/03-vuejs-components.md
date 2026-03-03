@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# VueJS - Composants
+# 03 - VueJS - Composants
 
 ---
 
@@ -76,18 +76,18 @@ export default {
 ## Déclarer un composant - Composition API
 
 ```javascript
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export default {
   setup() {
-    const count = ref(0)
+    const count = ref(0);
     return { count };
   },
   template: `
   <p>{{ count }}</p>
   <button @click="count++">Increment</button>
-  `
-}
+  `,
+};
 ```
 
 ---

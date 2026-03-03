@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# VueJS templating introduction
+# 02 - VueJS templating introduction
 
 ---
 
@@ -41,8 +41,8 @@ setup() {
 
 ```html
 <div v-bind:id="user.id">
-    <p>{{ user.username }}</p>
-    <p>{{ user.address }}</p>
+  <p>{{ user.username }}</p>
+  <p>{{ user.address }}</p>
 </div>
 ```
 
@@ -51,11 +51,10 @@ setup() {
 ## Event handling
 
 ```html
-<form v-on:submit.prevent="submitForm"
-        v-on:keyup.enter="submitForm">
-    <button v-on:click="incrementCounter">Increment</button>
-    <input v-on:input="event => text = event.target.value" v-bind:value="text"/>
-    <button type="submit">Submit</button>
+<form v-on:submit.prevent="submitForm" v-on:keyup.enter="submitForm">
+  <button v-on:click="incrementCounter">Increment</button>
+  <input v-on:input="event => text = event.target.value" v-bind:value="text" />
+  <button type="submit">Submit</button>
 </form>
 ```
 
@@ -64,11 +63,19 @@ setup() {
 ## Model management
 
 ```html
-<input type="text" v-bind:value="text" v-on:input="event => text = event.target.value"/>
-<input v-model="text"/>
+<input
+  type="text"
+  v-bind:value="text"
+  v-on:input="event => text = event.target.value"
+/>
+<input v-model="text" />
 
-<input type="checkbox" v-bind:checked="isChecked" v-on:click="_ => isChecked = !isChecked"/>
-<input v-model="isChecked"/>
+<input
+  type="checkbox"
+  v-bind:checked="isChecked"
+  v-on:click="_ => isChecked = !isChecked"
+/>
+<input v-model="isChecked" />
 ```
 
 ---
@@ -76,21 +83,21 @@ setup() {
 ## Computed references
 
 ```html
-<input v-model="firstname"/>
-<input v-model="lastname"/>
+<input v-model="firstname" />
+<input v-model="lastname" />
 <p>{{ fullname }}</p>
 
 <script>
-setup() {
-    const firstname = ref('Jean')
-    const lastname = ref('Dupond')
-    const fullname = computed(() => `${firstname} ${lastname}`)
-    return {
-        firstname,
-        fullname,
-        lastname,
-    }
-}
+  setup() {
+      const firstname = ref('Jean')
+      const lastname = ref('Dupond')
+      const fullname = computed(() => `${firstname} ${lastname}`)
+      return {
+          firstname,
+          fullname,
+          lastname,
+      }
+  }
 </script>
 ```
 
@@ -99,12 +106,12 @@ setup() {
 ## Conditional rendering
 
 ```html
-<input type="checkbox" v-model="display"/>
+<input type="checkbox" v-model="display" />
 <div v-if="display">Hello</div>
 ```
 
 ```html
-<input type="checkbox" v-model="display"/>
+<input type="checkbox" v-model="display" />
 <div v-if="display">Hello</div>
 <div v-else>Good bye</div>
 ```
@@ -127,11 +134,11 @@ setup() {
 
 ```html
 <template v-if="display">
-    <div>H</div>
-    <div>e</div>
-    <div>l</div>
-    <div>l</div>
-    <div>o</div>
+  <div>H</div>
+  <div>e</div>
+  <div>l</div>
+  <div>l</div>
+  <div>o</div>
 </template>
 ```
 
@@ -151,10 +158,7 @@ setup() {
 
 ```html
 <ul>
-    <li v-for="product in cart">
-        {{ product.name }}
-        {{ product.price }}
-    </li>
+  <li v-for="product in cart">{{ product.name }} {{ product.price }}</li>
 </ul>
 ```
 
@@ -163,12 +167,16 @@ setup() {
 ## Bind with classes and style
 
 ```html
-<style>.biggerFont { font-size: 2em; }</style>
-<input type="checkbox" v-model="isChecked"/>
+<style>
+  .biggerFont {
+    font-size: 2em;
+  }
+</style>
+<input type="checkbox" v-model="isChecked" />
 <div v-bind:class="{ biggerFont: isChecked }">Title</div>
 ```
 
 ```html
-<input type="checkbox" v-model="isChecked"/>
+<input type="checkbox" v-model="isChecked" />
 <div v-bind:style="{ font-size: isChecked ? '2em' : '1em' }">Title</div>
 ```

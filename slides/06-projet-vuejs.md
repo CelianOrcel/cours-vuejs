@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# Projet VueJS
+# 06 - Projet VueJS
 
 ---
 
@@ -18,8 +18,7 @@ Enfin, `npm install` et le projet est prêt à être lancé.
 
 ## Structure
 
-- 
-  - index.html
+- - index.html
   - src/
     - main.js
     - App.vue
@@ -35,18 +34,18 @@ Enfin, `npm install` et le projet est prêt à être lancé.
 
 ```vue
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const name = ref('John');
+const name = ref("John");
 </script>
 
 <template>
-    <input type="text" v-model="name"/>
+  <input type="text" v-model="name" />
 </template>
 
 <style scoped>
 input {
-    color: green;
+  color: green;
 }
 </style>
 ```

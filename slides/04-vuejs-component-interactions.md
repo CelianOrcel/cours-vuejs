@@ -4,7 +4,7 @@ paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
 ---
 
-# Intéractions entre composants
+# 04 - Intéractions entre composants
 
 ---
 
